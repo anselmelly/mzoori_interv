@@ -31,8 +31,7 @@ class PinSearch extends CI_Controller{
         }
         else
         {
-            $data['message'] = "";
-            $data['webpage'] = 
+//            $data['message'] = "";
             $this->Pin_Search->get_pin($pin);
         }
     }
