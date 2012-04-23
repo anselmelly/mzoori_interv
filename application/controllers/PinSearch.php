@@ -23,14 +23,23 @@ class PinSearch extends CI_Controller{
     }
     public function render_pin()
     {
-         $this->Pin_Search->get_pin($this->input->post("kra_pin"));
+        $pin = $this->input->post("kra_pin");
+        if (strlen($pin)<=0)
+        {
+            $data['message'] = "Please Provide a Pin Number";
+            $this->load->view('pinsearch/pinsearch.php',$data);
+        }
+        else
+        {
+            $data['message'] = "";
+            $data['webpage'] = 
+            $this->Pin_Search->get_pin($pin);
+        }
     }
     public function createForm()
     {
-        echo form_open('pinsearch/render_pin');
-        echo form_label('Enter KRA PIN ::');
-        echo form_input('kra_pin');
-        echo form_submit('submit', 'Submit');
+        $this->load->view('pinsearch/pinsearch.php');
+                
     }
 }
 
