@@ -19,6 +19,7 @@ class Pin_Search extends CI_Model{
             $htmlstr =  $this->makeRequest( 'post','http://www.kra.go.ke/checker/results.php' ,
                     array('pin='.$kra_pin, 'submit=Search'),
                     'http://www.kra.go.ke/checker/pinchecker.php' );
+            echo $htmlstr;
         }
      public function curl(  )
         {
