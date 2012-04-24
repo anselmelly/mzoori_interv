@@ -31,13 +31,14 @@ class PinSearch extends CI_Controller{
         }
         else
         {
-            $data['message'] = "";
+            $data['message'] = " ";
             $this->Pin_Search->get_pin($pin);
         }
     }
     public function createForm()
     {
-        $this->load->view('pinsearch/pinsearch.php');
+        $data['message'] = "";
+        $this->load->view('pinsearch/pinsearch.php',$data);
                 
     }
 }
